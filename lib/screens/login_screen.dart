@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gift_organiser/utils/base_auth.dart';
 
@@ -80,14 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   handleSignIn() {
-    Future<FirebaseUser> user = Auth().signIn();
-    user.then((user) {
       goToHomeScreen();
-    }).catchError((error) {
-      setState(() {
-        _error = error.toString();
-      });
-    });
   }
 
   void goToHomeScreen() {

@@ -16,10 +16,12 @@ class _SettingsState extends State<Settings> {
   void initState() {
     var auth = Auth();
     auth.getCurrentUser().then((user) {
-      setState(() {
-        _email = user.email;
-        _name = user.displayName;
-      });
+      if (user != null) {
+        setState(() {
+          _email = user.email;
+          _name = user.displayName;
+        });
+      }
     });
     super.initState();
   }
@@ -43,7 +45,7 @@ class _SettingsState extends State<Settings> {
                   width: 200,
                   height: 200,
                 )),
-            width: 350,
+            width: 400,
             height: 300,
           ),
         ],
